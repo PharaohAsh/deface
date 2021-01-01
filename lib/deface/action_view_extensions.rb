@@ -30,7 +30,11 @@ module Deface::ActionViewExtensions
         processed_source = source.to_param
       end
 
-      super(processed_source, identifier, handler, details)
+      locals = details[:locals]
+      virtual_path = details[:virtual_path]
+      variant = details[:variant]
+      format = details[:format]
+      super(processed_source, identifier, handler, locals: locals, virtual_path: virtual_path, variant: variant, format: format)
     end
 
     # refresh view to get source again if
